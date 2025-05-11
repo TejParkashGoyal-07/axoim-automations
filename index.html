@@ -3,10 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axiom Automations - AI & Automation Solutions</title>
+    <title>Axiom Automations | AI & Business Automation Solutions</title>
+    <meta name="description" content="Axiom Automations provides cutting-edge AI automation solutions to help businesses scale efficiently. Automate calls, emails, sales, marketing, and more with our intelligent agents.">
+    <meta name="keywords" content="AI automation, business automation, sales automation, marketing automation, lead generation, CRM integration, automated calls, cold emails automation">
+    <meta name="author" content="Axiom Automations">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.axiomautomations.com">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Axiom Automations | AI & Business Automation Solutions">
+    <meta property="og:description" content="Cutting-edge AI automation solutions to help your business scale efficiently with intelligent automation agents.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axiomautomations.com">
+    <meta property="og:image" content="https://www.axiomautomations.com/images/social-preview.jpg">
+    <meta property="og:site_name" content="Axiom Automations">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Axiom Automations | AI & Business Automation Solutions">
+    <meta name="twitter:description" content="Cutting-edge AI automation solutions to help your business scale efficiently with intelligent automation agents.">
+    <meta name="twitter:image" content="https://www.axiomautomations.com/images/social-preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://checkout.razorpay.com">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data / Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Axiom Automations",
+      "url": "https://www.axiomautomations.com",
+      "logo": "https://www.axiomautomations.com/images/logo.png",
+      "description": "Provider of cutting-edge AI automation solutions for businesses",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Automation Street",
+        "addressLocality": "Tech City",
+        "addressRegion": "CA",
+        "postalCode": "90001",
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-555-123-4567",
+        "contactType": "customer service",
+        "email": "contact@axiomautomations.com",
+        "areaServed": "US"
+      },
+      "sameAs": [
+        "https://www.facebook.com/axiomautomations",
+        "https://www.twitter.com/axiomautomations",
+        "https://www.linkedin.com/company/axiomautomations"
+      ]
+    }
+    </script>
+    
     <style>
         :root {
             --primary: #00f0ff;
@@ -36,6 +97,22 @@
         /* Smooth scroll behavior */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Skip to content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
 
         /* Utility Classes */
@@ -173,6 +250,8 @@
         .hamburger {
             display: none;
             cursor: pointer;
+            background: none;
+            border: none;
         }
 
         .hamburger div {
@@ -275,6 +354,7 @@
             width: 100%;
             height: auto;
             display: block;
+            alt: "AI and automation technology";
         }
 
         /* Services Section */
@@ -435,6 +515,27 @@
             font-size: 0.9rem;
         }
 
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from {
@@ -561,6 +662,9 @@
     </style>
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Header -->
     <header id="header">
         <div class="container">
@@ -572,201 +676,212 @@
                     <li><a href="#custom-agent">Custom Agent</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="hamburger">
+                <button class="hamburger" aria-label="Menu" aria-expanded="false">
                     <div></div>
                     <div></div>
                     <div></div>
-                </div>
+                </button>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="fade-in">Welcome to Axiom Automations</h1>
-                <p class="fade-in delay-1">Automate. Accelerate. Dominate.</p>
-                <a href="#services" class="btn fade-in delay-2">Get Started</a>
-            </div>
-        </div>
-        <div class="hero-bg"></div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">About Us</h2>
-            <div class="about-content">
-                <div class="about-text fade-in delay-1">
-                    <p>Axiom Automations is at the forefront of business transformation through cutting-edge AI and automation solutions. We empower businesses to scale efficiently by automating repetitive tasks and implementing intelligent agents that work around the clock.</p>
-                    <p>Our team of experts combines deep technical knowledge with business acumen to deliver automation solutions that drive real results. From lead generation to customer engagement, we build systems that perform at the highest level.</p>
-                    <p>In today's fast-paced digital landscape, automation isn't just an advantage—it's a necessity. Let us help you stay ahead of the competition with solutions tailored to your specific needs.</p>
-                </div>
-                <div class="about-image fade-in delay-2">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI and Automation">
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="fade-in">Welcome to Axiom Automations</h1>
+                    <p class="fade-in delay-1">Automate. Accelerate. Dominate.</p>
+                    <a href="#services" class="btn fade-in delay-2">Get Started</a>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="hero-bg"></div>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section">
-        <div class="container">
-            <h2 class="section-title text-center fade-in">Our Automation Agents</h2>
-            <div class="services-intro fade-in delay-1">
-                <p>Choose from our pre-built automation agents or <a href="#custom-agent" style="color: var(--primary);">request a custom solution</a> tailored to your specific business needs.</p>
-            </div>
-            <div class="services-grid">
-                <!-- Service Card 1 -->
-                <div class="service-card fade-in">
-                    <div class="service-card-content">
-                        <h3>Calls Agent</h3>
-                        <p>Automated calling system that handles customer inquiries, follow-ups, and appointment scheduling with natural voice interactions.</p>
-                        <div class="price">400</div>
-                        <button class="btn buy-now" data-product="Calls Agent" data-amount="40000">Buy Now</button>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">About Us</h2>
+                <div class="about-content">
+                    <div class="about-text fade-in delay-1">
+                        <p>Axiom Automations is at the forefront of business transformation through cutting-edge AI and automation solutions. We empower businesses to scale efficiently by automating repetitive tasks and implementing intelligent agents that work around the clock.</p>
+                        <p>Our team of experts combines deep technical knowledge with business acumen to deliver automation solutions that drive real results. From lead generation to customer engagement, we build systems that perform at the highest level.</p>
+                        <p>In today's fast-paced digital landscape, automation isn't just an advantage—it's a necessity. Let us help you stay ahead of the competition with solutions tailored to your specific needs.</p>
                     </div>
-                </div>
-
-                <!-- Service Card 2 -->
-                <div class="service-card fade-in delay-1">
-                    <div class="service-card-content">
-                        <h3>Cold Mails Agent</h3>
-                        <p>Automated cold email system that personalizes and sends targeted outreach campaigns with high deliverability rates.</p>
-                        <div class="price">150</div>
-                        <button class="btn buy-now" data-product="Cold Mails Agent" data-amount="15000">Buy Now</button>
-                    </div>
-                </div>
-
-                <!-- Service Card 3 -->
-                <div class="service-card fade-in delay-2">
-                    <div class="service-card-content">
-                        <h3>LinkedIn Post Agent</h3>
-                        <p>Automated LinkedIn content creation and posting system that engages your network with relevant, high-quality content.</p>
-                        <div class="price">250</div>
-                        <button class="btn buy-now" data-product="LinkedIn Post Agent" data-amount="25000">Buy Now</button>
-                    </div>
-                </div>
-
-                <!-- Service Card 4 -->
-                <div class="service-card fade-in">
-                    <div class="service-card-content">
-                        <h3>Sales Agent (Site Integrated)</h3>
-                        <p>Website-integrated sales assistant that engages visitors, answers questions, and captures leads 24/7.</p>
-                        <div class="price">300</div>
-                        <button class="btn buy-now" data-product="Sales Agent (Site Integrated)" data-amount="30000">Buy Now</button>
-                    </div>
-                </div>
-
-                <!-- Service Card 5 -->
-                <div class="service-card fade-in delay-1">
-                    <div class="service-card-content">
-                        <h3>Sales + CRM + Quick Reply</h3>
-                        <p>Comprehensive sales automation system with CRM integration and instant response capabilities for maximum conversion.</p>
-                        <div class="price">4,000</div>
-                        <button class="btn buy-now" data-product="Sales + CRM + Quick Reply" data-amount="400000">Buy Now</button>
-                    </div>
-                </div>
-
-                <!-- Service Card 6 -->
-                <div class="service-card fade-in delay-2">
-                    <div class="service-card-content">
-                        <h3>Marketing Agent</h3>
-                        <p>Full-service marketing automation that handles email campaigns, social media, and content distribution.</p>
-                        <div class="price">500</div>
-                        <button class="btn buy-now" data-product="Marketing Agent" data-amount="50000">Buy Now</button>
-                    </div>
-                </div>
-
-                <!-- Service Card 7 -->
-                <div class="service-card fade-in">
-                    <div class="service-card-content">
-                        <h3>Lead Gen + Personalised Outreach + Quick Reply</h3>
-                        <p>End-to-end lead generation system with personalized outreach and instant response capabilities for high-ticket clients.</p>
-                        <div class="price">40,000</div>
-                        <button class="btn buy-now" data-product="Lead Gen + Personalised Outreach + Quick Reply" data-amount="4000000">Buy Now</button>
+                    <div class="about-image fade-in delay-2">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI and automation technology">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Custom Agent Section -->
-    <section id="custom-agent" class="section">
-        <div class="container">
-            <div class="custom-agent-content">
-                <h2 class="section-title fade-in">Need a Custom Automation Solution?</h2>
-                <p class="fade-in delay-1">Don't see exactly what you need? We specialize in building custom automation agents tailored to your unique business requirements.</p>
-                
-                <div class="custom-agent-form fade-in delay-2">
-                    <form id="customAgentForm">
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title text-center fade-in">Our Automation Agents</h2>
+                <div class="services-intro fade-in delay-1">
+                    <p>Choose from our pre-built automation agents or <a href="#custom-agent" style="color: var(--primary);">request a custom solution</a> tailored to your specific business needs.</p>
+                </div>
+                <div class="services-grid">
+                    <!-- Service Card 1 -->
+                    <div class="service-card fade-in">
+                        <div class="service-card-content">
+                            <h3>Calls Agent</h3>
+                            <p>Automated calling system that handles customer inquiries, follow-ups, and appointment scheduling with natural voice interactions.</p>
+                            <div class="price">400</div>
+                            <button class="btn buy-now" data-product="Calls Agent" data-amount="40000">Buy Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="service-card fade-in delay-1">
+                        <div class="service-card-content">
+                            <h3>Cold Mails Agent</h3>
+                            <p>Automated cold email system that personalizes and sends targeted outreach campaigns with high deliverability rates.</p>
+                            <div class="price">150</div>
+                            <button class="btn buy-now" data-product="Cold Mails Agent" data-amount="15000">Buy Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="service-card fade-in delay-2">
+                        <div class="service-card-content">
+                            <h3>LinkedIn Post Agent</h3>
+                            <p>Automated LinkedIn content creation and posting system that engages your network with relevant, high-quality content.</p>
+                            <div class="price">250</div>
+                            <button class="btn buy-now" data-product="LinkedIn Post Agent" data-amount="25000">Buy Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 4 -->
+                    <div class="service-card fade-in">
+                        <div class="service-card-content">
+                            <h3>Sales Agent (Site Integrated)</h3>
+                            <p>Website-integrated sales assistant that engages visitors, answers questions, and captures leads 24/7.</p>
+                            <div class="price">300</div>
+                            <button class="btn buy-now" data-product="Sales Agent (Site Integrated)" data-amount="30000">Buy Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 5 -->
+                    <div class="service-card fade-in delay-1">
+                        <div class="service-card-content">
+                            <h3>Sales + CRM + Quick Reply</h3>
+                            <p>Comprehensive sales automation system with CRM integration and instant response capabilities for maximum conversion.</p>
+                            <div class="price">4,000</div>
+                            <button class="btn buy-now" data-product="Sales + CRM + Quick Reply" data-amount="400000">Buy Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 6 -->
+                    <div class="service-card fade-in delay-2">
+                        <div class="service-card-content">
+                            <h3>Marketing Agent</h3>
+                            <p>Full-service marketing automation that handles email campaigns, social media, and content distribution.</p>
+                            <div class="price">500</div>
+                            <button class="btn buy-now" data-product="Marketing Agent" data-amount="50000">Buy Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 7 -->
+                    <div class="service-card fade-in">
+                        <div class="service-card-content">
+                            <h3>Lead Gen + Personalised Outreach + Quick Reply</h3>
+                            <p>End-to-end lead generation system with personalized outreach and instant response capabilities for high-ticket clients.</p>
+                            <div class="price">40,000</div>
+                            <button class="btn buy-now" data-product="Lead Gen + Personalised Outreach + Quick Reply" data-amount="4000000">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Custom Agent Section -->
+        <section id="custom-agent" class="section">
+            <div class="container">
+                <div class="custom-agent-content">
+                    <h2 class="section-title fade-in">Need a Custom Automation Solution?</h2>
+                    <p class="fade-in delay-1">Don't see exactly what you need? We specialize in building custom automation agents tailored to your unique business requirements.</p>
+                    
+                    <div class="custom-agent-form fade-in delay-2">
+                        <form id="customAgentForm">
+                            <div class="form-group">
+                                <label for="custom-name">Name</label>
+                                <input type="text" id="custom-name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="custom-email">Email</label>
+                                <input type="email" id="custom-email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="custom-phone">Phone Number</label>
+                                <input type="tel" id="custom-phone" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="custom-business">Business Name</label>
+                                <input type="text" id="custom-business" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="custom-requirements">Automation Requirements</label>
+                                <textarea id="custom-requirements" class="form-control" required placeholder="Describe the automation solution you need, including any specific features or integrations required"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="custom-budget">Estimated Budget</label>
+                                <select id="custom-budget" class="form-control" required>
+                                    <option value="">Select budget range</option>
+                                    <option value="$1,000 - $5,000">$1,000 - $5,000</option>
+                                    <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                                    <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+                                    <option value="$25,000+">$25,000+</option>
+                                    <option value="Not sure">Not sure</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn">Request Custom Agent</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title text-center fade-in">Get In Touch</h2>
+                <div class="contact-form fade-in delay-1">
+                    <form id="contactForm">
                         <div class="form-group">
-                            <label for="custom-name">Name</label>
-                            <input type="text" id="custom-name" class="form-control" required>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="custom-email">Email</label>
-                            <input type="email" id="custom-email" class="form-control" required>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="custom-phone">Phone Number</label>
-                            <input type="tel" id="custom-phone" class="form-control" required>
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="custom-business">Business Name</label>
-                            <input type="text" id="custom-business" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="custom-requirements">Automation Requirements</label>
-                            <textarea id="custom-requirements" class="form-control" required placeholder="Describe the automation solution you need, including any specific features or integrations required"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="custom-budget">Estimated Budget</label>
-                            <select id="custom-budget" class="form-control" required>
-                                <option value="">Select budget range</option>
-                                <option value="$1,000 - $5,000">$1,000 - $5,000</option>
-                                <option value="$5,000 - $10,000">$5,000 - $10,000</option>
-                                <option value="$10,000 - $25,000">$10,000 - $25,000</option>
-                                <option value="$25,000+">$25,000+</option>
-                                <option value="Not sure">Not sure</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn">Request Custom Agent</button>
+                        <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title text-center fade-in">Get In Touch</h2>
-            <div class="contact-form fade-in delay-1">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <p>© Axiom Automations 2025 | All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#custom-agent">Custom Agent</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
             </div>
         </div>
     </footer>
@@ -782,6 +897,8 @@
             const navLinks = document.querySelector('.nav-links');
             
             hamburger.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
                 this.classList.toggle('active');
                 navLinks.classList.toggle('active');
             });
@@ -789,6 +906,7 @@
             // Close mobile menu when clicking a link
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
+                    hamburger.setAttribute('aria-expanded', 'false');
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('active');
                 });
@@ -816,7 +934,7 @@
                 const subject = `New Contact from ${name}`;
                 const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
                 
-                window.location.href = `mailto:axoimautomations@gmail.com?subject=${subject}&body=${body}`;
+                window.location.href = `mailto:axoimautomations@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 
                 // Reset form
                 contactForm.reset();
@@ -840,7 +958,7 @@
                 const subject = `Custom Agent Request from ${business}`;
                 const body = `Business Name: ${business}%0D%0AContact Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0ABudget: ${budget}%0D%0A%0D%0ARequirements:%0D%0A${requirements}`;
                 
-                window.location.href = `mailto:axoimautomations@gmail.com?subject=${subject}&body=${body}`;
+                window.location.href = `mailto:axoimautomations@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 
                 // Reset form
                 customAgentForm.reset();
@@ -861,7 +979,7 @@
                         currency: 'INR',
                         name: 'Axiom Automations',
                         description: productName,
-                        image: 'https://via.placeholder.com/150', // Add your logo URL
+                        image: 'https://www.axiomautomations.com/images/logo.png', // Add your logo URL
                         handler: function(response) {
                             alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
                             // Here you can redirect to a success page or send the payment details to your server
