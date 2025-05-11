@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axiom Automations - AI & Automation Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --secondary: #7928ca;
+            --dark: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --medium-gray: #2a2a2a;
+            --light-gray: #e0e0e0;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background-color: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--white);
+            margin: 5px;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(121, 40, 202, 0.1));
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMDAwMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMxZDFkMWQiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=');
+            opacity: 0.1;
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--dark-gray);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Services Section */
+        #services {
+            background-color: var(--dark);
+        }
+
+        .services-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(121, 40, 202, 0.1));
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 240, 255, 0.2);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card-content {
+            padding: 30px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-card .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--white);
+        }
+
+        .service-card .price::before {
+            content: '$';
+            font-size: 1.2rem;
+            vertical-align: top;
+            margin-right: 2px;
+        }
+
+        .service-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Custom Agent Section */
+        #custom-agent {
+            background-color: var(--dark-gray);
+            text-align: center;
+        }
+
+        .custom-agent-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .custom-agent-form {
+            background-color: var(--medium-gray);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--dark);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--medium-gray);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--dark-gray);
+            border: 1px solid var(--medium-gray);
+            border-radius: 5px;
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .footer-content p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 70px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-bg {
+                width: 100%;
+                clip-path: none;
+                opacity: 0.2;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: var(--dark-gray);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .custom-agent-form,
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 10px 25px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Axiom<span>Automations</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#custom-agent">Custom Agent</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">Welcome to Axiom Automations</h1>
+                <p class="fade-in delay-1">Automate. Accelerate. Dominate.</p>
+                <a href="#services" class="btn fade-in delay-2">Get Started</a>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">About Us</h2>
+            <div class="about-content">
+                <div class="about-text fade-in delay-1">
+                    <p>Axiom Automations is at the forefront of business transformation through cutting-edge AI and automation solutions. We empower businesses to scale efficiently by automating repetitive tasks and implementing intelligent agents that work around the clock.</p>
+                    <p>Our team of experts combines deep technical knowledge with business acumen to deliver automation solutions that drive real results. From lead generation to customer engagement, we build systems that perform at the highest level.</p>
+                    <p>In today's fast-paced digital landscape, automation isn't just an advantage—it's a necessity. Let us help you stay ahead of the competition with solutions tailored to your specific needs.</p>
+                </div>
+                <div class="about-image fade-in delay-2">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI and Automation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title text-center fade-in">Our Automation Agents</h2>
+            <div class="services-intro fade-in delay-1">
+                <p>Choose from our pre-built automation agents or <a href="#custom-agent" style="color: var(--primary);">request a custom solution</a> tailored to your specific business needs.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service Card 1 -->
+                <div class="service-card fade-in">
+                    <div class="service-card-content">
+                        <h3>Calls Agent</h3>
+                        <p>Automated calling system that handles customer inquiries, follow-ups, and appointment scheduling with natural voice interactions.</p>
+                        <div class="price">400</div>
+                        <button class="btn buy-now" data-product="Calls Agent" data-amount="40000">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card fade-in delay-1">
+                    <div class="service-card-content">
+                        <h3>Cold Mails Agent</h3>
+                        <p>Automated cold email system that personalizes and sends targeted outreach campaigns with high deliverability rates.</p>
+                        <div class="price">150</div>
+                        <button class="btn buy-now" data-product="Cold Mails Agent" data-amount="15000">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card fade-in delay-2">
+                    <div class="service-card-content">
+                        <h3>LinkedIn Post Agent</h3>
+                        <p>Automated LinkedIn content creation and posting system that engages your network with relevant, high-quality content.</p>
+                        <div class="price">250</div>
+                        <button class="btn buy-now" data-product="LinkedIn Post Agent" data-amount="25000">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card fade-in">
+                    <div class="service-card-content">
+                        <h3>Sales Agent (Site Integrated)</h3>
+                        <p>Website-integrated sales assistant that engages visitors, answers questions, and captures leads 24/7.</p>
+                        <div class="price">300</div>
+                        <button class="btn buy-now" data-product="Sales Agent (Site Integrated)" data-amount="30000">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card fade-in delay-1">
+                    <div class="service-card-content">
+                        <h3>Sales + CRM + Quick Reply</h3>
+                        <p>Comprehensive sales automation system with CRM integration and instant response capabilities for maximum conversion.</p>
+                        <div class="price">4,000</div>
+                        <button class="btn buy-now" data-product="Sales + CRM + Quick Reply" data-amount="400000">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card fade-in delay-2">
+                    <div class="service-card-content">
+                        <h3>Marketing Agent</h3>
+                        <p>Full-service marketing automation that handles email campaigns, social media, and content distribution.</p>
+                        <div class="price">500</div>
+                        <button class="btn buy-now" data-product="Marketing Agent" data-amount="50000">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 7 -->
+                <div class="service-card fade-in">
+                    <div class="service-card-content">
+                        <h3>Lead Gen + Personalised Outreach + Quick Reply</h3>
+                        <p>End-to-end lead generation system with personalized outreach and instant response capabilities for high-ticket clients.</p>
+                        <div class="price">40,000</div>
+                        <button class="btn buy-now" data-product="Lead Gen + Personalised Outreach + Quick Reply" data-amount="4000000">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Agent Section -->
+    <section id="custom-agent" class="section">
+        <div class="container">
+            <div class="custom-agent-content">
+                <h2 class="section-title fade-in">Need a Custom Automation Solution?</h2>
+                <p class="fade-in delay-1">Don't see exactly what you need? We specialize in building custom automation agents tailored to your unique business requirements.</p>
+                
+                <div class="custom-agent-form fade-in delay-2">
+                    <form id="customAgentForm">
+                        <div class="form-group">
+                            <label for="custom-name">Name</label>
+                            <input type="text" id="custom-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="custom-email">Email</label>
+                            <input type="email" id="custom-email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="custom-phone">Phone Number</label>
+                            <input type="tel" id="custom-phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="custom-business">Business Name</label>
+                            <input type="text" id="custom-business" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="custom-requirements">Automation Requirements</label>
+                            <textarea id="custom-requirements" class="form-control" required placeholder="Describe the automation solution you need, including any specific features or integrations required"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="custom-budget">Estimated Budget</label>
+                            <select id="custom-budget" class="form-control" required>
+                                <option value="">Select budget range</option>
+                                <option value="$1,000 - $5,000">$1,000 - $5,000</option>
+                                <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                                <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+                                <option value="$25,000+">$25,000+</option>
+                                <option value="Not sure">Not sure</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">Request Custom Agent</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title text-center fade-in">Get In Touch</h2>
+            <div class="contact-form fade-in delay-1">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© Axiom Automations 2025 | All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Razorpay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <!-- Main JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                const subject = `New Contact from ${name}`;
+                const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+                
+                window.location.href = `mailto:axoimautomations@gmail.com?subject=${subject}&body=${body}`;
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Show success message
+                alert('Thank you for your message! We will get back to you soon.');
+            });
+
+            // Custom Agent form submission
+            const customAgentForm = document.getElementById('customAgentForm');
+            customAgentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('custom-name').value;
+                const email = document.getElementById('custom-email').value;
+                const phone = document.getElementById('custom-phone').value;
+                const business = document.getElementById('custom-business').value;
+                const requirements = document.getElementById('custom-requirements').value;
+                const budget = document.getElementById('custom-budget').value;
+                
+                const subject = `Custom Agent Request from ${business}`;
+                const body = `Business Name: ${business}%0D%0AContact Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0ABudget: ${budget}%0D%0A%0D%0ARequirements:%0D%0A${requirements}`;
+                
+                window.location.href = `mailto:axoimautomations@gmail.com?subject=${subject}&body=${body}`;
+                
+                // Reset form
+                customAgentForm.reset();
+                
+                // Show success message
+                alert('Thank you for your custom agent request! We will review your requirements and contact you shortly.');
+            });
+
+            // Razorpay Integration
+            document.querySelectorAll('.buy-now').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productName = this.getAttribute('data-product');
+                    const amount = this.getAttribute('data-amount');
+                    
+                    const options = {
+                        key: 'rzp_test_YOUR_TEST_KEY', // Replace with your test key
+                        amount: amount, // Amount is in paise (100 paise = ₹1)
+                        currency: 'INR',
+                        name: 'Axiom Automations',
+                        description: productName,
+                        image: 'https://via.placeholder.com/150', // Add your logo URL
+                        handler: function(response) {
+                            alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+                            // Here you can redirect to a success page or send the payment details to your server
+                        },
+                        prefill: {
+                            name: 'Customer Name',
+                            email: 'customer@example.com',
+                            contact: '9999999999'
+                        },
+                        notes: {
+                            address: 'Axiom Automations Office'
+                        },
+                        theme: {
+                            color: '#00f0ff'
+                        }
+                    };
+                    
+                    const rzp = new Razorpay(options);
+                    rzp.open();
+                });
+            });
+
+            // Scroll animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.style.opacity = 1;
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Initial check
+            fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+        });
+    </script>
+</body>
+</html>
